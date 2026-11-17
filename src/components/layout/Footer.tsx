@@ -25,6 +25,12 @@ export function Footer() {
             {t.footer.store}
           </Link>
           <Link
+            to="/products"
+            className="hover:text-[#267C78] dark:hover:text-[#ECF3F4] transition-colors whitespace-nowrap"
+          >
+            {t.nav.products}
+          </Link>
+          <Link
             to="/cart"
             className="hover:text-[#267C78] dark:hover:text-[#ECF3F4] transition-colors whitespace-nowrap"
           >

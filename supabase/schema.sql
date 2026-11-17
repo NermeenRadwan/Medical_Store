@@ -386,11 +386,3 @@ INSERT INTO public.pricing_tiers (id, product_id, units_per_bundle, bundle_price
   ('44444444-4444-4444-8444-444444444406', '33333333-3333-4333-8333-333333333303', 12, 55.000)
 ON CONFLICT (id) DO NOTHING;
 
--- =============================================================================
--- HOW TO PROMOTE YOUR FIRST ADMIN USER (Run in Supabase SQL Editor AFTER creating
--- the user in Authentication -> Users):
---
---   UPDATE public.profiles
---   SET role = 'admin'
---   WHERE email = 'YOUR_ADMIN_EMAIL@example.com';
--- =============================================================================

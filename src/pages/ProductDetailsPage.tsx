@@ -246,7 +246,7 @@ export function ProductDetailsPage() {
         className="mb-6 flex items-center gap-2 text-sm text-[#25343A]/70 dark:text-[#9AB2B8]"
       >
         <Link
-          to="/"
+          to="/products"
           className="hover:text-[#267C78] dark:hover:text-[#ECF3F4] transition-colors inline-flex items-center gap-1.5 whitespace-nowrap"
         >
           <BackArrow className="w-4 h-4" aria-hidden="true" />

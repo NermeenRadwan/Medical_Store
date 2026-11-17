@@ -53,6 +53,23 @@ export interface TranslationDictionary {
     emptyTitle: string;
     emptyDesc: string;
     showAllProducts: string;
+    carouselTitle: string;
+    carouselSubtitle: string;
+    viewAllProducts: string;
+    prevProductsAria: string;
+    nextProductsAria: string;
+    badgeQuality: string;
+    badgeQualityDesc: string;
+    badgeBundles: string;
+    badgeBundlesDesc: string;
+    badgeDelivery: string;
+    badgeDeliveryDesc: string;
+  };
+  products: {
+    pageTitle: string;
+    pageSubtitle: string;
+    breadcrumbHome: string;
+    allProducts: string;
   };
   product: {
     defaultBrand: string;
@@ -135,6 +152,58 @@ export interface TranslationDictionary {
     promoRemovedToast: string;
     discountLabel: (percent: number) => string;
     discountAmount: string;
+    proceedToCheckout: string;
+  };
+  checkout: {
+    pageTitle: string;
+    pageSubtitle: string;
+    customerInfoTitle: string;
+    fullNameLabel: string;
+    fullNamePlaceholder: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
+    addressLabel: string;
+    addressPlaceholder: string;
+    paymentMethodTitle: string;
+    paymentMethodSubtitle: string;
+    paymentCash: string;
+    paymentCashDesc: string;
+    paymentVisa: string;
+    paymentVisaDesc: string;
+    visaDemoBadge: string;
+    visaNotice: string;
+    cardholderLabel: string;
+    cardholderPlaceholder: string;
+    cardNumberLabel: string;
+    cardNumberPlaceholder: string;
+    cardExpiryLabel: string;
+    cardExpiryPlaceholder: string;
+    cardCvvLabel: string;
+    cardCvvPlaceholder: string;
+    orderSummaryTitle: string;
+    itemsCount: (count: number) => string;
+    confirmOrderCash: string;
+    confirmOrderVisa: string;
+    processing: string;
+    valFullName: string;
+    valPhone: string;
+    valAddress: string;
+    valCardholder: string;
+    valCardNumber: string;
+    valCardExpiry: string;
+    valCardCvv: string;
+    orderConfirmedTitle: string;
+    orderConfirmedSubtitle: string;
+    demoNotice: string;
+    orderRef: string;
+    orderDate: string;
+    selectedPayment: string;
+    deliverTo: string;
+    backToHome: string;
+    browseMoreProducts: string;
+    cartEmptyTitle: string;
+    cartEmptyDesc: string;
+    startShopping: string;
   };
   adminAuth: {
     areaBadge: string;
@@ -308,6 +377,23 @@ export const translations: Record<Language, TranslationDictionary> = {
       emptyDesc:
         'جرّب تعديل كلمات البحث أو إعادة تعيين فلاتر العلامة التجارية والتصنيف.',
       showAllProducts: 'عرض جميع المنتجات',
+      carouselTitle: 'منتجات مختارة من العناية الوطنية',
+      carouselSubtitle: 'تصفح أحدث الأجهزة والمستلزمات الطبية المعتمدة والمتاحة للشراء المباشر بالباقات',
+      viewAllProducts: 'عرض جميع المنتجات',
+      prevProductsAria: 'المنتجات السابقة',
+      nextProductsAria: 'المنتجات التالية',
+      badgeQuality: 'جودة طبية معتمدة',
+      badgeQualityDesc: 'مستلزمات وأجهزة طبية مطابقة لأعلى المعايير الصحية',
+      badgeBundles: 'توفير الباقات المتعددة',
+      badgeBundlesDesc: 'أسعار مخفضة وشفافة عند شراء باقات أكبر',
+      badgeDelivery: 'توصيل سريع وموثوق',
+      badgeDeliveryDesc: 'شحن آمن وفوري لكافة مناطق الكويت',
+    },
+    products: {
+      pageTitle: 'كتالوج المنتجات الطبية',
+      pageSubtitle: 'تصفح الكتالوج الشامل لجميع الأجهزة والمستلزمات الطبية مع فلاتر البحث والتسعير المتعدد',
+      breadcrumbHome: 'الرئيسية',
+      allProducts: 'جميع المنتجات',
     },
     product: {
       defaultBrand: 'علامة تجارية',
@@ -398,6 +484,61 @@ export const translations: Record<Language, TranslationDictionary> = {
       promoRemovedToast: 'تمت إزالة كود الخصم',
       discountLabel: (percent) => `خصم الكوبون (${percent}%)`,
       discountAmount: 'قيمة الخصم',
+      proceedToCheckout: 'المتابعة لإتمام الطلب',
+    },
+    checkout: {
+      pageTitle: 'إتمام الطلب (تجريبي)',
+      pageSubtitle: 'أدخل بيانات التوصيل واختر طريقة الدفع للمعاينة التجريبية',
+      customerInfoTitle: 'بيانات العميل وعنوان التوصيل',
+      fullNameLabel: 'الاسم الكامل',
+      fullNamePlaceholder: 'مثال: د. محمد أحمد',
+      phoneLabel: 'رقم الهاتف',
+      phonePlaceholder: 'مثال: 98765432',
+      addressLabel: 'عنوان التوصيل في الكويت',
+      addressPlaceholder: 'المنطقة، القطعة، الشارع، المبنى / المنزل، الشقة...',
+      paymentMethodTitle: 'طريقة الدفع',
+      paymentMethodSubtitle: 'اختر طريقة السداد لإتمام عملية الشراء التجريبية',
+      paymentCash: 'الدفع عند الاستلام (نقداً)',
+      paymentCashDesc: 'الدفع نقداً عند استلام طلبك ومراجعة المستلزمات الطبية',
+      paymentVisa: 'بطاقة فيزا / كي نت (محاكاة تجريبية)',
+      paymentVisaDesc: 'نموذج دفع تجريبي مسبق التعبئة لمعاينة تجربة الدفع الإلكتروني',
+      visaDemoBadge: 'محاكاة تجريبية فقط',
+      visaNotice:
+        '⚠️ تنبيه تجريبي: هذا النموذج لأغراض المعاينة والتجربة فقط. لا تدخل أرقام بطاقات بنكية حقيقية. تم ملء بيانات تجريبية مسبقاً لتسهيل الاختبار.',
+      cardholderLabel: 'اسم حامل البطاقة (تجريبي)',
+      cardholderPlaceholder: 'Jane Doe',
+      cardNumberLabel: 'رقم البطاقة (تجريبي)',
+      cardNumberPlaceholder: '4111 2222 3333 4444',
+      cardExpiryLabel: 'تاريخ الانتهاء (تجريبي)',
+      cardExpiryPlaceholder: '12/28',
+      cardCvvLabel: 'رمز الأمان CVV (تجريبي)',
+      cardCvvPlaceholder: '123',
+      orderSummaryTitle: 'ملخص الطلب التجريبي',
+      itemsCount: (count) => (count === 1 ? 'باقة واحدة' : `${count} باقات`),
+      confirmOrderCash: 'تأكيد الطلب (الدفع عند الاستلام)',
+      confirmOrderVisa: 'دفع وتأكيد الطلب (تجريبي)',
+      processing: 'جاري معالجة الطلب التجريبي...',
+      valFullName: 'يرجى إدخال الاسم الكامل (حرفين على الأقل)',
+      valPhone: 'يرجى إدخال رقم هاتف صحيح (7 أرقام على الأقل)',
+      valAddress: 'يرجى إدخال عنوان التوصيل بالتفصيل',
+      valCardholder: 'يرجى إدخال اسم حامل البطاقة',
+      valCardNumber: 'يرجى إدخال رقم بطاقة صحيح',
+      valCardExpiry: 'يرجى إدخال تاريخ انتهاء صحيح (MM/YY)',
+      valCardCvv: 'يرجى إدخال رمز CVV (3-4 أرقام)',
+      orderConfirmedTitle: 'تم تأكيد طلبك التجريبي بنجاح! 🎉',
+      orderConfirmedSubtitle:
+        'شكراً لاختيارك مجموعة العناية الوطنية. تم تسجيل طلبك التجريبي وتجهيز ملخصه أدناه.',
+      demoNotice:
+        'ℹ️ هذه عملية محاكاة تجريبية للواجهة الأمامية فقط. لم يتم خصم أي مبالغ مالية حقيقية ولم يتم إرسال طلب فعلي للتوصيل.',
+      orderRef: 'رقم المرجع التجريبي',
+      orderDate: 'تاريخ الطلب',
+      selectedPayment: 'طريقة الدفع المختارة',
+      deliverTo: 'عنوان التوصيل',
+      backToHome: 'العودة للصفحة الرئيسية',
+      browseMoreProducts: 'تصفح كتالوج المنتجات',
+      cartEmptyTitle: 'سلة التسوق فارغة',
+      cartEmptyDesc: 'يرجى إضافة منتجات وباقات إلى السلة أولاً قبل إتمام الطلب.',
+      startShopping: 'ابدأ التسوق الآن',
     },
     adminAuth: {
       areaBadge: 'منطقة الإدارة المحمية',
@@ -577,6 +718,23 @@ export const translations: Record<Language, TranslationDictionary> = {
       emptyDesc:
         'Try adjusting your search keywords or resetting the brand and category filters.',
       showAllProducts: 'Show All Products',
+      carouselTitle: 'Featured Medical Products',
+      carouselSubtitle: 'Explore trusted diagnostic devices and clinical supplies available for direct purchase in flexible multi-unit bundles.',
+      viewAllProducts: 'View All Products',
+      prevProductsAria: 'Previous products',
+      nextProductsAria: 'Next products',
+      badgeQuality: 'Certified Medical Grade',
+      badgeQualityDesc: 'All diagnostic devices and clinical consumables conform to health standards',
+      badgeBundles: 'Multi-Pack Savings',
+      badgeBundlesDesc: 'Transparent bulk volume discounts on larger bundle tiers',
+      badgeDelivery: 'Reliable Fast Delivery',
+      badgeDeliveryDesc: 'Direct, safe dispatch across all Kuwait governates',
+    },
+    products: {
+      pageTitle: 'Medical Products Catalog',
+      pageSubtitle: 'Browse our comprehensive catalog of medical supplies and equipment with real-time filters and multi-tier bundle pricing.',
+      breadcrumbHome: 'Home',
+      allProducts: 'All Products',
     },
     product: {
       defaultBrand: 'Brand',
@@ -668,6 +826,61 @@ export const translations: Record<Language, TranslationDictionary> = {
       promoRemovedToast: 'Promo code removed',
       discountLabel: (percent) => `Promo Discount (${percent}%)`,
       discountAmount: 'Discount',
+      proceedToCheckout: 'Proceed to Checkout',
+    },
+    checkout: {
+      pageTitle: 'Demo Checkout',
+      pageSubtitle: 'Enter delivery details and select a demo payment method to preview the order experience',
+      customerInfoTitle: 'Customer & Delivery Information',
+      fullNameLabel: 'Full Name',
+      fullNamePlaceholder: 'e.g. Dr. John Doe',
+      phoneLabel: 'Phone Number',
+      phonePlaceholder: 'e.g. +965 98765432',
+      addressLabel: 'Delivery Address in Kuwait',
+      addressPlaceholder: 'Area, Block, Street, Building / House, Floor, Apt...',
+      paymentMethodTitle: 'Payment Method',
+      paymentMethodSubtitle: 'Choose your payment method for this simulated order',
+      paymentCash: 'Cash on Delivery',
+      paymentCashDesc: 'Pay cash upon receiving and inspecting your medical supplies',
+      paymentVisa: 'Visa / K-NET (Demo Only)',
+      paymentVisaDesc: 'Simulated payment form pre-filled with test data for demonstration',
+      visaDemoBadge: 'Simulation Only',
+      visaNotice:
+        '⚠️ DEMO SIMULATION ONLY: This is a front-end simulation for testing and demonstration. Never enter real credit card numbers. Test data has been pre-filled for convenience.',
+      cardholderLabel: 'Cardholder Name (Demo)',
+      cardholderPlaceholder: 'Jane Doe',
+      cardNumberLabel: 'Card Number (Demo)',
+      cardNumberPlaceholder: '4111 2222 3333 4444',
+      cardExpiryLabel: 'Expiry Date (Demo)',
+      cardExpiryPlaceholder: '12/28',
+      cardCvvLabel: 'Security Code CVV (Demo)',
+      cardCvvPlaceholder: '123',
+      orderSummaryTitle: 'Demo Order Summary',
+      itemsCount: (count) => (count === 1 ? '1 bundle' : `${count} bundles`),
+      confirmOrderCash: 'Confirm Demo Order (Cash on Delivery)',
+      confirmOrderVisa: 'Pay & Confirm Demo Order',
+      processing: 'Processing Demo Order...',
+      valFullName: 'Please enter your full name (at least 2 characters)',
+      valPhone: 'Please enter a valid phone number (at least 7 digits)',
+      valAddress: 'Please enter your delivery address in detail',
+      valCardholder: 'Please enter the cardholder name',
+      valCardNumber: 'Please enter a valid card number',
+      valCardExpiry: 'Please enter a valid expiry date (MM/YY)',
+      valCardCvv: 'Please enter a valid CVV (3-4 digits)',
+      orderConfirmedTitle: 'Your demo order has been completed successfully! 🎉',
+      orderConfirmedSubtitle:
+        'Thank you for shopping with National Care Group. Your simulated order details are summarized below.',
+      demoNotice:
+        'ℹ️ This is a front-end demo simulation only. No real charges were processed and no physical order will be delivered.',
+      orderRef: 'Demo Order Reference',
+      orderDate: 'Order Date',
+      selectedPayment: 'Selected Payment Method',
+      deliverTo: 'Deliver To',
+      backToHome: 'Back to Home',
+      browseMoreProducts: 'Browse More Products',
+      cartEmptyTitle: 'Your Cart is Empty',
+      cartEmptyDesc: 'Please add medical products and bundles to your cart before proceeding to checkout.',
+      startShopping: 'Start Shopping',
     },
     adminAuth: {
       areaBadge: 'Protected Admin Area',

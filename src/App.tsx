@@ -9,8 +9,10 @@ import { Navbar } from '@/src/components/layout/Navbar';
 import { Footer } from '@/src/components/layout/Footer';
 import { ProtectedAdminRoute } from '@/src/components/auth/ProtectedAdminRoute';
 import { HomePage } from '@/src/pages/HomePage';
+import { ProductsPage } from '@/src/pages/ProductsPage';
 import { ProductDetailsPage } from '@/src/pages/ProductDetailsPage';
 import { CartPage } from '@/src/pages/CartPage';
+import { CheckoutPage } from '@/src/pages/CheckoutPage';
 import { AdminLoginPage } from '@/src/pages/AdminLoginPage';
 import { AdminDashboardPage } from '@/src/pages/AdminDashboardPage';
 
@@ -40,6 +42,14 @@ function AppRoutes() {
           }
         />
         <Route
+          path="/products"
+          element={
+            <CustomerLayout>
+              <ProductsPage />
+            </CustomerLayout>
+          }
+        />
+        <Route
           path="/products/:id"
           element={
             <CustomerLayout>
@@ -52,6 +62,14 @@ function AppRoutes() {
           element={
             <CustomerLayout>
               <CartPage />
+            </CustomerLayout>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <CustomerLayout>
+              <CheckoutPage />
             </CustomerLayout>
           }
         />

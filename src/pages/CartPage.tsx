@@ -43,6 +43,7 @@ export function CartPage() {
   const [promoInput, setPromoInput] = useState('');
 
   const BackArrow = isRTL ? ArrowRight : ArrowLeft;
+  const ForwardArrow = isRTL ? ArrowLeft : ArrowRight;
 
   const handleQuantityChange = (lineKey: string, nextQty: number) => {
     if (!Number.isInteger(nextQty) || nextQty < 1) {
@@ -129,7 +130,7 @@ export function CartPage() {
           </p>
           <div className="mt-6">
             <Link
-              to="/"
+              to="/products"
               className="h-11 px-6 rounded-lg bg-[#267C78] hover:bg-[#1F6966] text-white text-sm font-semibold inline-flex items-center gap-2 transition-colors"
             >
               <BackArrow className="w-4 h-4" aria-hidden="true" />
@@ -432,9 +433,18 @@ export function CartPage() {
               </div>
             </div>
 
+            {/* Primary Proceed to Checkout CTA */}
             <Link
-              to="/"
-              className="mt-1 w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-[#213B43] hover:border-[#267C78] text-[#123B45] dark:text-[#ECF3F4] text-sm font-medium flex items-center justify-center gap-2 transition-colors"
+              to="/checkout"
+              className="mt-2 w-full h-12 rounded-xl bg-[#267C78] hover:bg-[#1F6966] text-white text-sm font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-sm"
+            >
+              <span>{t.cart.proceedToCheckout}</span>
+              <ForwardArrow className="w-4 h-4" aria-hidden="true" />
+            </Link>
+
+            <Link
+              to="/products"
+              className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-[#213B43] hover:border-[#267C78] text-[#123B45] dark:text-[#ECF3F4] text-sm font-medium flex items-center justify-center gap-2 transition-colors"
             >
               <BackArrow className="w-4 h-4" aria-hidden="true" />
               <span>{t.cart.continueShopping}</span>

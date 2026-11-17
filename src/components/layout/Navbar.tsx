@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu, Moon, ShoppingBag, Sun, X } from 'lucide-react';
 import { useTheme } from '@/src/context/ThemeContext';
 import { useCart } from '@/src/context/CartContext';
@@ -11,22 +11,12 @@ export function Navbar() {
   const { totalBundleItems } = useCart();
   const { language, setLanguage, t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
 
   const navLinks = [
     { to: '/', label: t.nav.home },
-    { to: '/#catalog', label: t.nav.products, isCatalogAnchor: true },
+    { to: '/products', label: t.nav.products },
     { to: '/cart', label: t.nav.cart },
   ];
-
-  const handleCatalogClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    setMobileMenuOpen(false);
-    if (location.pathname === '/') {
-      e.preventDefault();
-      const el = document.getElementById('catalog');
-      el?.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 dark:border-[#213B43] bg-white/95 dark:bg-[#0B1518]/95 backdrop-blur-md">
@@ -63,34 +53,23 @@ export function Navbar() {
           aria-label={t.nav.mainAria}
           className="hidden md:flex items-center gap-6 lg:gap-7 text-sm font-medium"
         >
-          {navLinks.map((link) =>
-            link.isCatalogAnchor ? (
-              <a
-                key={link.label}
-                href="/#catalog"
-                onClick={handleCatalogClick}
-                className="whitespace-nowrap shrink-0 text-[#25343A]/80 dark:text-[#9AB2B8] hover:text-[#267C78] dark:hover:text-[#ECF3F4] transition-colors py-1"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end={link.to === '/'}
-                className={({ isActive }) =>
-                  cn(
-                    'whitespace-nowrap shrink-0 transition-colors py-1 border-b-2',
-                    isActive
-                      ? 'text-[#123B45] dark:text-[#ECF3F4] border-[#267C78] font-semibold'
-                      : 'text-[#25343A]/80 dark:text-[#9AB2B8] border-transparent hover:text-[#267C78] dark:hover:text-[#ECF3F4]'
-                  )
-                }
-              >
-                {link.label}
-              </NavLink>
-            )
-          )}
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.to === '/'}
+              className={({ isActive }) =>
+                cn(
+                  'whitespace-nowrap shrink-0 transition-colors py-1 border-b-2',
+                  isActive
+                    ? 'text-[#123B45] dark:text-[#ECF3F4] border-[#267C78] font-semibold'
+                    : 'text-[#25343A]/80 dark:text-[#9AB2B8] border-transparent hover:text-[#267C78] dark:hover:text-[#ECF3F4]'
+                )
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </nav>
 
         {/* Zone 3: Language Switcher + Theme Toggle + Cart + Mobile Menu Trigger */}
@@ -168,35 +147,24 @@ export function Navbar() {
           aria-label={t.nav.mobileAria}
           className="md:hidden border-t border-slate-200 dark:border-[#213B43] bg-white dark:bg-[#112126] px-4 py-3 flex flex-col gap-1"
         >
-          {navLinks.map((link) =>
-            link.isCatalogAnchor ? (
-              <a
-                key={link.label}
-                href="/#catalog"
-                onClick={handleCatalogClick}
-                className="px-3 py-2.5 rounded-lg text-sm font-medium text-[#25343A] dark:text-[#ECF3F4] hover:bg-[#E8F4F1] dark:hover:bg-[#172B31]"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end={link.to === '/'}
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  cn(
-                    'px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
-                    isActive
-                      ? 'bg-[#E8F4F1] dark:bg-[#172B31] text-[#123B45] dark:text-[#ECF3F4] font-semibold'
-                      : 'text-[#25343A] dark:text-[#9AB2B8] hover:bg-[#F5F7F8] dark:hover:bg-[#172B31]'
-                  )
-                }
-              >
-                {link.label}
-              </NavLink>
-            )
-          )}
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.to === '/'}
+              onClick={() => setMobileMenuOpen(false)}
+              className={({ isActive }) =>
+                cn(
+                  'px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
+                  isActive
+                    ? 'bg-[#E8F4F1] dark:bg-[#172B31] text-[#123B45] dark:text-[#ECF3F4] font-semibold'
+                    : 'text-[#25343A] dark:text-[#9AB2B8] hover:bg-[#F5F7F8] dark:hover:bg-[#172B31]'
+                )
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </nav>
       )}
     </header>
