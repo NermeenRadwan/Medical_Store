@@ -331,4 +331,4 @@ Vite only exposes variables prefixed with `VITE_` to the browser. Make sure your
 
 ## 📄 License
 
-This project is proprietary and belongs to **National Care Group**. All rights reserved.
+This project is proprietary and belongs to **Nermeen Radwan**. All rights reserved.
