@@ -6,3 +6,9 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Lock files — using npm (package-lock.json) as the authoritative lockfile
+bun.lock
+
+# Assessment/internal documents — kept locally but not on GitHub
+public/assets/aistudio/*.pdf
